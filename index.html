@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https: unsafe-inline">
+    <title>Transformar Planilhas</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+  <!-- <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="data:image/png;base64,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" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Transformar Planilhas
+      </a>
+    </div>
+  </nav> -->
+  <main class="flex-shrink-0">
+    <div class="bg-light">
+      <div class="p-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" checked name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            CNES por equipe
+          </label>
+        </div>
+        <div class="border-bottom my-4"></div>
+        <div class="row">
+          <div class="col">
+            <button id="readBtn" class="btn btn-primary" type="button">Selecionar planilha</button>
+          </div>
+          <div class="col text-end">
+            <button id="exportBtn" class="btn btn-success" type="button" disabled="true">
+              Salvar como...
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-4">
+      <div id="htmlout"></div>
+    </div>
+  </main>
+  <footer class="footer mt-auto py-2 bg-light">
+    <div class="container-fluid">
+      <span class="text-muted">&copy; 2022 <a href="https://linkedin.com/in/samueledson">samueledson</a></span>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+</html>
